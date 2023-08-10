@@ -1,4 +1,3 @@
-
 export class Database {
     readonly #bleepKey = "bleeps";
     readonly #kv: Deno.Kv;

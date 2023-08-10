@@ -3,18 +3,20 @@ import { airtable } from "../index.ts";
 import { interrogateError } from "../utils.ts";
 
 const deleteBleepCommand = new Command()
-  .description("Delete a Bleep")
-  .arguments("<id>")
-  .action(async (_, ...args) => {
-    const response = await airtable.delete<{ deleted: boolean; id: string }>(
-      args[0],
-    );
+    .description("Delete a Bleep")
+    .arguments("<id>")
+    .action(async (_, ...args) => {
+        const response = await airtable.delete<
+            { deleted: boolean; id: string }
+        >(
+            args[0],
+        );
 
-    interrogateError(response, "Failed to delete bleep");
+        interrogateError(response, "Failed to delete bleep");
 
-    if (response && response.deleted) {
-      console.log(`Bleep ${response.id} deleted`);
-    }
-  });
+        if (response && response.deleted) {
+            console.log(`Bleep ${response.id} deleted`);
+        }
+    });
 
 export default deleteBleepCommand;

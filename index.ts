@@ -15,24 +15,24 @@ let baseId = env["AIRTABLE_BASE_ID"];
 let tableName = env["AIRTABLE_TABLE_NAME"];
 
 if (!pat) {
-  pat = Deno.env.get("AIRTABLE_PAT") || "";
-  if (pat === "") {
-    throw new Error("AIRTABLE_PAT environment variable not set.");
-  }
+    pat = Deno.env.get("AIRTABLE_PAT") || "";
+    if (pat === "") {
+        throw new Error("AIRTABLE_PAT environment variable not set.");
+    }
 }
 
 if (!baseId) {
-  baseId = Deno.env.get("AIRTABLE_BASE_ID") || "";
-  if (baseId === "") {
-    throw new Error("AIRTABLE_BASE_ID environment variable not set.");
-  }
+    baseId = Deno.env.get("AIRTABLE_BASE_ID") || "";
+    if (baseId === "") {
+        throw new Error("AIRTABLE_BASE_ID environment variable not set.");
+    }
 }
 
 if (!tableName) {
-  tableName = Deno.env.get("AIRTABLE_TABLE") || "";
-  if (tableName === "") {
-    throw new Error("AIRTABLE_TABLE environment variable not set.");
-  }
+    tableName = Deno.env.get("AIRTABLE_TABLE") || "";
+    if (tableName === "") {
+        throw new Error("AIRTABLE_TABLE environment variable not set.");
+    }
 }
 
 /**
@@ -46,15 +46,15 @@ const kv = await Deno.openKv();
 const at = new Airtable({ apiKey: pat, baseId, tableName });
 export const airtable = new Proxy<Airtable>(
     at,
-    new CacheProxy(new Database(kv))
+    new CacheProxy(new Database(kv)),
 );
 
 await new Command()
-  .name("Bleeper")
-  .description("A personal social media platform")
-  .command("list", listBleepsCommand)
-  .command("scaffold", scaffoldBaseCommand)
-  .command("add", addBleepCommand)
-  .command("edit", editBleepCommand)
-  .command("delete", deleteBleepCommand)
-  .parse(Deno.args);
+    .name("Bleeper")
+    .description("A personal social media platform")
+    .command("list", listBleepsCommand)
+    .command("scaffold", scaffoldBaseCommand)
+    .command("add", addBleepCommand)
+    .command("edit", editBleepCommand)
+    .command("delete", deleteBleepCommand)
+    .parse(Deno.args);

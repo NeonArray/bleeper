@@ -1,5 +1,5 @@
-import {Airtable} from "./airtable.ts";
-import {Database} from "./db.ts";
+import { Airtable } from "./airtable.ts";
+import { Database } from "./db.ts";
 
 export class CacheProxy {
     readonly #db: Database;
