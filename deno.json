@@ -1,8 +1,5 @@
 {
     "title": "Bleeper",
-    "tasks": {
-        "exec": "deno run --allow-read --allow-net --allow-env --unstable index.ts"
-    },
     "fmt": {
         "indentWidth": 4
     }
