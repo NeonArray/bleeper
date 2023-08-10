@@ -36,3 +36,9 @@ deno run --allow-net --allow-read --allow-env --unstable index.ts [command]
 | `list`     |                        | `-p,--pageSize <number>`, `-n, -num <number>` | List Bleeps with given page size and number per page                                          |
 | `delete`   | `<bleepId:string>`     |                                               | Delete a Bleep with given ID                                                                  |
 | `edit`     | `<bleepId:string>`     | `-id <string>`, `-t <string>`, `-c <string>`  | Edit a Bleep with given ID                                                                    |
+
+## Built in
+
+- Deno
+- [Cliffy](https://cliffy.io/docs@v1.0.0-rc.2)
+
